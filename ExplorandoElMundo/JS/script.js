@@ -26,7 +26,7 @@ function solicitarReintento(){
              *          Vocales acentuadas y con diéresis.
              *          'Ñ' y 'ñ'.
              */
-        if (!/^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+$/.test(respuesta)){
+        if (!/^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ]+$/.test(respuesta)){
             // Muestreo de un mensaje de error indicando que la respuesta introducida contiene caracteres no permitidos.
             alert("ERROR: La respuesta únicamente puede contener letras.");
             
@@ -258,6 +258,7 @@ do{
         // Salto de línea.
         document.write ("<br>");
 
+        
         // <========== Bloque de código para la solicitud sobre la cantidad de escaparates que hay en el camino ==========>
 
         // Solicita al usuario la cantidad de escaparates (recolector de respuesta por pantalla).
@@ -402,7 +403,7 @@ do{
              *          Vocales acentuadas y con diéresis.
              *          'Ñ' y 'ñ'.
              */
-        } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+$/.test(colorLuzSemaforo)){
+        } else if (!/^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ]+$/.test(colorLuzSemaforo)){
             // Muestreo de un mensaje de error indicando que la respuesta introducida contiene caracteres no permitidos.
             alert("ERROR: La respuesta únicamente puede contener letras.");
             

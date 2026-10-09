@@ -52,7 +52,7 @@ function solicitarReintento(){
              *          Vocales acentuadas y con diéresis.
              *          'Ñ' y 'ñ'.
              */
-        } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+$/.test(respuesta)){
+        } else if (!/^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ]+$/.test(respuesta)){
             // Muestreo de un mensaje de error indicando que la respuesta introducida contiene caracteres no permitidos.
             alert("ERROR: La respuesta únicamente puede contener letras.");
             
@@ -229,7 +229,9 @@ do{
              * ventanaNueva.document.write("<main>");
              */
 
+            
             // <========== Bloque de código para la solicitud sobre la cantidad de carteles que hay en el camino ==========>
+
             // Solicita al usuario la cantidad de carteles (recolector de respuesta por pantalla).
             var cantidadCarteles = solicitarCantidad("¿Cuántos carteles hay en el camino? (Se solicita un número entero positivo o cero)", 0);
 
@@ -444,7 +446,7 @@ do{
                 break;
 
             // Condicional para comprobar que la respuesta esperada únicamente contenga letras.
-            } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+$/.test(colorLuzSemaforo)){
+            } else if (!/^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ]+$/.test(colorLuzSemaforo)){
                 // Muestreo de un mensaje de error indicando que la respuesta introducida contiene caracteres no permitidos.
                 alert("ERROR: La respuesta únicamente puede contener letras.");
                 
