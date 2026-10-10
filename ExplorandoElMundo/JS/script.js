@@ -11,7 +11,7 @@ function solicitarReintento(){
     // Bucle controlador de reintentos sobre la solicitud de confirmación.
     do{
         // Solicita al usuario si desea volver a intentarlo (recolector de respuesta por pantalla).
-        var respuesta = prompt ("¿Quieres retroceder, volver a intentarlo? ('Sí' o 'No)");
+        var respuesta = prompt("¿Quieres retroceder, volver a intentarlo? ('Sí' o 'No)");
 
         // Condicional para comprobar si el usuario ha cancelado la solicitud.
         if (respuesta == null){
@@ -91,7 +91,7 @@ do{
         // <========== Bloque de código para la solicitud sobre la cantidad de carteles que hay en el camino ==========>
 
         // Solicita al usuario la cantidad de carteles (recolector de respuesta por pantalla).
-        var cantidadCarteles = prompt ("¿Cuántos carteles hay en el camino? (Se solicita un número entero positivo o cero)");
+        var cantidadCarteles = prompt("¿Cuántos carteles hay en el camino? (Se solicita un número entero positivo o cero)");
 
         // Condicional para comprobar si el usuario ha cancelado la solicitud.
         if (cantidadCarteles == null){
@@ -157,10 +157,11 @@ do{
         // Salto de línea.
         document.write ("<br>");
 
+
         // <========== Bloque de código para la solicitud sobre la cantidad de puertas que hay en el camino ==========>
 
         // Solicita al usuario la cantidad de puertas (recolector de respuesta por pantalla).
-        var cantidadPuertas = prompt ("¿Cuántas puertas hay en el camino? (Se solicita un número entero positivo o cero)");
+        var cantidadPuertas = prompt("¿Cuántas puertas hay en el camino? (Se solicita un número entero positivo o cero)");
         
         // Condicional para comprobar si el usuario ha cancelado la solicitud.
         if (cantidadPuertas == null){
@@ -196,7 +197,7 @@ do{
         // Condicional para respuestas esperadas.
         } else{
             // Solicita al usuario el número de la primera puerta (recolector de respuesta por pantalla).
-            var numeroPrimeraPuerta = prompt ("¿Cuál es el número de la primera puerta?");
+            var numeroPrimeraPuerta = prompt("¿Cuál es el número de la primera puerta?");
         
             // Condicional para comprobar si el usuario ha cancelado la solicitud.
             if (numeroPrimeraPuerta == null){
@@ -262,7 +263,7 @@ do{
         // <========== Bloque de código para la solicitud sobre la cantidad de escaparates que hay en el camino ==========>
 
         // Solicita al usuario la cantidad de escaparates (recolector de respuesta por pantalla).
-        var cantidadEscaparates = prompt ("¿Cuántas escaparates hay en el camino? (Se solicita un número entero positivo o cero)");
+        var cantidadEscaparates = prompt("¿Cuántas escaparates hay en el camino? (Se solicita un número entero positivo o cero)");
 
         // Condicional para comprobar si el usuario ha cancelado la solicitud.
         if (cantidadEscaparates == null){
@@ -312,19 +313,20 @@ do{
             document.write ("</div>");
         }
 
+        
         // <========== Bloque de código para la solicitud sobre la hora del reloj ==========>
 
         document.write ("<div class = \"relojSemaforo\">");
         // Solicita al usuario la hora del reloj (recolector de respuesta por pantalla).
-        //var horaReloj = prompt ("¿Qué hora es? (Formato: HH:MM)");
+        //var horaReloj = prompt("¿Qué hora es? (Formato: HH:MM)");
         // Solicita al usuario la hora del reloj (recolector de respuesta por pantalla).
-        var horaReloj = prompt ("¿Qué hora es? (Introduzca una hora entre 0 y 23)");
+        var horaReloj = prompt("¿Qué hora es? (Introduzca una hora entre 0 y 23)");
 
-        // Solicita al usuario los minutos del reloj (recolector de respuesta por pantalla).
-        var minutosReloj = prompt ("¿Cuántos minutos son? (Introduzca un número entre 0 y 59)");
-        
+        // Normaliza la respuesta eliminando los espacios (facilitar las comparaciones).
+        horaReloj = horaReloj.trim();
+
         // Condicional para comprobar si el usuario ha cancelado la solicitud.
-        if (horaReloj == null || minutosReloj == null){
+        if (horaReloj == null){
             // Muestreo de un mensaje informativo indicando que el usuario ha cancelado la ejecución.
             alert("La ejecución ha sido cancelada.");
 
@@ -339,7 +341,7 @@ do{
         }
 
         // Condicional para comprobar/verificar que la respuesta introducida sea un número entero positivo (inferior o igual a 23) o cero.
-        if (isNaN(horaReloj) || horaReloj < 0 || horaReloj > 23 || !Number.isInteger(Number(horaReloj))){
+        if (isNaN(horaReloj) || Number(horaReloj) < 0 || Number(horaReloj) > 23 || !Number.isInteger(Number(horaReloj))){
             // Muestreo de un mensaje de error indicando que la respuesta introducida contiene caracteres no permitidos.
             alert("ERROR: La respuesta únicamente puede contener un número entero positivo (inferior o igual a 23) o cero.");
             
@@ -348,9 +350,31 @@ do{
 
             // Solicita al usuario si desea volver a intentarlo.
             decisionRepetirEjecucion = solicitarReintento();
+        }
+
+        // Solicita al usuario los minutos del reloj (recolector de respuesta por pantalla).
+        var minutosReloj = prompt("¿Cuántos minutos son? (Introduzca un número entre 0 y 59)");
+
+        // Normaliza la respuesta eliminando los espacios (facilitar las comparaciones).
+        minutosReloj = minutosReloj.trim();
+
+        // Condicional para comprobar si el usuario ha cancelado la solicitud.
+        if (minutosReloj == null){
+            // Muestreo de un mensaje informativo indicando que el usuario ha cancelado la ejecución.
+            alert("La ejecución ha sido cancelada.");
+
+            // Registra en la consola la hora introducida.
+            console.log (horaReloj);
+            
+            // Registra en la consola los minutos introducidos.
+            console.log (minutosReloj);
+            
+            // Detiene la repetición del programa.
+            decisionRepetirEjecucion = false;
+        }
 
         // Condicional para comprobar/verificar que la respuesta introducida sea un número entero positivo (inferior o igual a 59) o cero.
-        } else if (isNaN(minutosReloj) || minutosReloj < 0 || minutosReloj > 59 || !Number.isInteger(Number(minutosReloj))){
+        if (isNaN(minutosReloj) || Number(minutosReloj) < 0 || Number(minutosReloj) > 59 || !Number.isInteger(Number(minutosReloj))){
             // Muestreo de un mensaje de error indicando que la respuesta introducida contiene caracteres no permitidos.
             alert("ERROR: La respuesta únicamente puede contener un número entero positivo (inferior o igual a 59) o cero.");
             
@@ -382,7 +406,7 @@ do{
         // <========== Bloque de código para la solicitud sobre el color de las luces del semáforo ==========>
 
         // Solicita al usuario el color de las luces del semáforo (recolector de respuesta por pantalla).
-        var colorLuzSemaforo = prompt ("¿Cuál es el color de luz del semáforo? ('Rojo', 'Verde' o 'Ámbar')");
+        var colorLuzSemaforo = prompt("¿Cuál es el color de luz del semáforo? ('Rojo', 'Verde' o 'Ámbar')");
 
         // Condicional para comprobar si el usuario ha cancelado la solicitud.
         if (colorLuzSemaforo == null){
@@ -502,10 +526,11 @@ do{
         // Salto de línea.
         document.write ("<br>");
 
+
         // <========== Bloque de código para la solicitud sobre la cantidad de coches que hay en el camino ==========>
 
         // Solicita al usuario la cantidad de coches (recolector de respuesta por pantalla).
-        var cantidadCoches = prompt ("¿Cuántos coches hay en la carretera/camino? (Se solicita un número entero positivo o cero)");
+        var cantidadCoches = prompt("¿Cuántos coches hay en la carretera/camino? (Se solicita un número entero positivo o cero)");
 
         // Condicional para comprobar si el usuario ha cancelado la solicitud.
         if (cantidadCoches == null){

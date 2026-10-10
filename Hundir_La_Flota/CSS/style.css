@@ -5,31 +5,55 @@
 }
 
 body{
-    max-width: auto;
-    max-height: auto;
-    width: 100%;
-    height: 100%;
+    min-width: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: #d0ceca;
     margin-top: 15px;
+
+    background-image: url("../Images/Agua/oceanoEnCalma.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.tablero{
-    border-collapse: collapse;
-}
+/**
+ * Define el tamaño de cada casilla del tablero (se aplica en la tabla y en el cálculo del tamaño de las imágenes de los barcos).
+ *     ":root" variable inventada que funciona igual que un "const" de JS (en este caso guarda un valor con un nombre y lo usa en varios sitios).
+ */
+:root{ --casilla: 50px; } /* "--" Cualquier nombre que empiece por + "casilla" */
+
+.tablero{ border-collapse: collapse; }
 
 .tablero th, .tablero td{
-    width: 40px;
-    height: 40px;
+    width: var(--casilla);
+    height: var(--casilla);
     text-align: center;
     border: 1px solid black;
 }
 
 .tablero th{ background-color: #a9a6a0; }
 
-.agua{ background-color: #8fcde0; }
-.barco1{ background-color: #b0b0b0; }
-.barco2{ background-color: #808080; }
-.barco3{ background-color: #505050; color: white; }
+.agua{
+    position: relative;
+    padding: 0;
+    background-image: url("../Images/Agua/oceanoRevuelto.png");
+    background-size: cover;
+}
+
+.imagenBarco{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--casilla) * var(--longitud));
+    height: var(--casilla);
+    object-fit: fill;
+    z-index: 1;
+}
+
+.imagenBarco.vertical{
+    transform-origin: top left;
+    transform: rotate(90deg) translateY(-100%);
+}
