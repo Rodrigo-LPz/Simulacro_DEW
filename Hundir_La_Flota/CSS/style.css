@@ -1,3 +1,9 @@
+/**
+ * Define el tamaño de cada casilla del tablero (se aplica en la tabla y en el cálculo del tamaño de las imágenes de los barcos).
+ *     ":root" variable inventada que funciona igual que un "const" de JS (en este caso guarda un valor con un nombre y lo usa en varios sitios).
+ */
+:root{ --casilla: 50px; } /* "--" Cualquier nombre que empiece por + "casilla" */
+
 *{
     margin: 0;
     padding: 0;
@@ -18,12 +24,6 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
-
-/**
- * Define el tamaño de cada casilla del tablero (se aplica en la tabla y en el cálculo del tamaño de las imágenes de los barcos).
- *     ":root" variable inventada que funciona igual que un "const" de JS (en este caso guarda un valor con un nombre y lo usa en varios sitios).
- */
-:root{ --casilla: 50px; } /* "--" Cualquier nombre que empiece por + "casilla" */
 
 .tablero{ border-collapse: collapse; }
 
